@@ -6,7 +6,7 @@ for(var i=0;i<btn;i++){
 document.querySelectorAll(".drum")[i].addEventListener("click",function(){
    var btnIneer=this.innerHTML;
    makeSound(btnIneer);
-  
+   animationS(btnIneer);
 
     this.style.color="black";
     
@@ -20,6 +20,7 @@ document.querySelectorAll(".drum")[i].addEventListener("click",function(){
 }
 document.addEventListener("keypress",function(event){
    makeSound(event.key);
+   animationS(event.key);
 })
 function makeSound(key){
     switch(key){
@@ -54,4 +55,12 @@ function makeSound(key){
                break;
            }
 
+
+}
+function animationS(currentKey){
+var activebtn=document.querySelector("."+currentKey);
+activebtn.classList.add("pressed");
+setTimeout(function(){
+activebtn.classList.remove("pressed");
+},100)
 }
